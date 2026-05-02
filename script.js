@@ -101,3 +101,17 @@
     row.remove();
     saveToLocal();
 }
+
+const searchInput = document.getElementById("search-mhs");
+
+searchInput.addEventListener("keyup", function () {
+    const keyword = this.value.toLowerCase();
+    const rows = tableBody.getElementsByTagName("tr");
+
+    for (let i = 0; i < rows.length; i++) {
+        const text = rows[i].innerText.toLowerCase();
+        const match = text.includes(keyword);
+
+        rows[i].style.display = match ? "" : "none";
+    }
+});
